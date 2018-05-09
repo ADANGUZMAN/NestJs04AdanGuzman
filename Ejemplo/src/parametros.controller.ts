@@ -14,9 +14,21 @@ export class ParametrosController {
         const respuesta = {
             queryParams: queryParams,
             bodyParams: bodyParams,
-            paramsParams: paramsParams
+            paramsParams: paramsParams,
+            baseUrl:request.baseUrl,
+            hostname:request.hostname,
+            subdominios:request.subdominios,
+            ip:request.ip,
+            Metodo:request.method,
+            originalUrl:request.originalUrl,
+            path:request.path,
+            protocolo:request.protocol
         };
         return response.send(respuesta);
     }
-
+    @Get('ReqRes')
+    requestResponse(
+        @Req() request,
+        @Res() response
+    )
 }
